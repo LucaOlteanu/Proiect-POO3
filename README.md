@@ -110,7 +110,7 @@ quit – iese din program
 
 Concluzie
 Proiectul indeplineste toate cerintele temei 3:
-
+```
 clasa sablon si functie sablon
 
 trei design patterns (Singleton, Factory, Builder)
@@ -120,10 +120,10 @@ sistem de puncte de loialitate
 citire comenzi din fisier
 
 separare cod in .h/.cpp, smart pointers, exceptii proprii, copy-and-swap, functii virtuale, dynamic_cast
-
+```
 GitHub: LucaOlteanu/ProiectPOO3
 
-
+---
 
 
 Review cod proiect – Sistem de gestiune comenzi online (Tema 3)
