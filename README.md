@@ -22,7 +22,7 @@ Datele de intrare (utilizator si catalog) sunt citite dintr-un fisier text (`dat
 ## Arhitectura si concepte OOP implementate
 
 ### Ierarhia de clase
-
+```
 Produs (clasa abstracta)
 ├── ProdusAlimentar (reducere 50% daca expira in < 24h)
 ├── ProdusElectronic (reducere 10% daca garantia > 24 luni)
@@ -38,7 +38,7 @@ Catalog (Singleton) – gestioneaza toate produsele
 ProdusFactory – creeaza produse pe baza tipului si datelor din fisier
 
 ComandaBuilder – construieste un cos pas cu pas (design pattern Builder)
-
+```
 
 ### Caracteristici specifice temei 3
 
