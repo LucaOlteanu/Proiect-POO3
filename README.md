@@ -125,11 +125,11 @@ Review cod proiect – Sistem de gestiune comenzi online (Tema 3)
 
 1. Introducere si impresie generala
 
-Proiectul analizat este o aplicatie de comert online care permite gestionarea unui catalog de produse (alimentare, electronice, mobilier), a unui cos de cumparaturi si a unui sistem de puncte de loialitate. Codul este scris in C++20 si respecta cerintele temei 3: separare in fisiere header si sursa, mosteniri, functii virtuale, template-uri, design patterns (Singleton, Factory, Builder), excepii proprii si citire din fisiere. Structura este clara, iar functionalitatile sunt bine delimitate. Programul ruleaza fara erori si trateaza exceptiile corespunzator.
+Proiectul meu este o aplicatie de comert online care permite gestionarea unui catalog de produse (alimentare, electronice, mobilier), a unui cos de cumparaturi si a unui sistem de puncte de loialitate. Codu este scris in C++20 si respecta cerintele temei 3: separare in fisiere header si sursa, mosteniri, functii virtuale, template-uri, design patterns (Singleton, Factory, Builder), excepii proprii si ccitire din fisiere. Structura este clara, iar functionalitatile sunt bine delimitate. Programul ruleaza fara erori si trateaza exceptiile corespunzator.
 
 2. Arhitectura si implementare
 
-Autorul a pastrat ierarhia de la tema 2 (Produs, ProdusAlimentar, ProdusElectronic, ProdusMobilier) si a adaugat elementele cerute:
+Am pastrat ierarhia de la tema 2 (Produs, ProdusAlimentar, ProdusElectronic, ProdusMobilier) si amm adaugat elementele cerute:
 
 - Clasa sablon Utilizator<T> inlocuieste vechea clasa Utilizator. Acum un utilizator are un camp extra de tip T, folosit pentru puncte de loialitate (int). Constructorii, operatorii si metodele sunt implementate corect. ID-ul ramane constant la copiere, ceea ce este bine.
 
@@ -155,20 +155,22 @@ Clasa Produs are functii virtuale pure (calculeazaPretFinal, clone, afisare). Op
 
 6. Sesiunea interactiva si citirea comenzilor
 
-Partea cea mai noua este sesiunea de cumparare, care poate fi controlata de la tastatura sau dintr-un fisier comenzi.txt. Autorul a folosit un std::istream& care poate fi std::cin sau un ifstream. Comenzile sunt parseate linie cu linie. Programul afiseaza promptul "> " chiar si cand citeste din fisier, ceea ce poate fi deranjant, dar nu afecteaza functionalitatea. O imbunatatire minora ar fi sa nu mai afiseze promptul in modul automat. In rest, comenzile sunt simple si usor de inteles.
+Partea cea mai noua este sesiunea de cumparare, care poate fi controlata de la tastatura sau dintr-un fisier comenzi.txt. Am folosit un std::istream& care poate fi std::cin sau un ifstream. Comenzile sunt parseeate linie cu linie. Programul afiseaza promptul "> " chiar si cand citeste din fisier, ceea ce poate fi deranjant, dar nu afecteza functionalitatea. O imbunatatire minora ar fi sa nu mai afiseze promptul in modul automat. In rest, comenzile sunt simple si usor de inteles.
 
 7. Sistemul de puncte de loialitate
 
-Punctele sunt stocate in extra-ul utilizatorului. La finalizarea comenzii, utilizatorul poate alege daca foloseste punctele (se scad din total). Apoi, la plata efectiva (dupa eventuala reducere cu puncte), se adauga puncte noi (1 la 10 lei). Codul din Cos::finalizeazaComanda gestioneaza corect aceste operatii. Este un feature realist si bine integrat.
+Punctele sunt stocate in extra-ul utilizatorului. La finalizarea comenzii, utilizatorul poate alege daca foloseste punctele (se scad din total). Apoi, la plata efectiva (dupa eventuala reducere cu puncte), se adauga puncte noi (1 la 10 lei). Codul din Cos::finalizeazaComanda gestioneaza corect aceste operatii. Este un feture realist si bine integrat.
 
 8. Mici observatii si posibile imbunatatiri
 
 - In main, linia `std::cin >> opt;` pentru puncte ar fi putut fi inlocuita cu `std::getline` pentru a evita problemele cu newline-ul ramas, dar in contextul actual (dupa ce s-a citit din stream-ul de comenzi sau de la tastatura) functioneaza.
-- Produsul alimentar Paine (expirat) este incarcat in fisier dar nu este adaugat in catalog (este filtrat). In fisierul dat, Paine este ultima linie, dar are data 2024-01-01, deci este ignorata. Nu este o eroare.
-- In Builder, produsele sunt mutate in cos, dar discount-ul setat nu este aplicat nicaieri (metoda setDiscount este definita dar nu folosita in build). Acesta este un punct slab: discount-ul nu se reflecta in pretul final. De fapt, in build() se apeleaza cos.adaugaProdus(std::move(item.produs), item.cantitate) fara a aplica discountul. Ar fi trebuit ca builder-ul sa aplice discountul fiecarui produs inainte de a-l adauga, sau sa seteze un discount global pe cos. Acesta este un bug functional. Din fericire, in scenariul de test discountul este 0, deci nu se observa. Dar pentru nota 10, ar trebui corectat.
+
+- Produsul alimentar Paine (expirat) este incarcat in fisier dar nu este adaugat in catalog (este filtrat). In fisierul dat, Paine este ultima linie, dar are data 2024-01-01, deci este ignorata. Am ales sa o pastrez pentru ca am implementatoptiunea ca produsele sa fie adaugate in catalog doar daca sunt valabile.
+  
+- In Builder, produsele sunt mutate in cos, dar discount-ul setat nu este aplicat nicaieri (metoda setDiscount este definita dar nu folosita in build). Acesta este un punct slab: discount-ul nu se reflecta in pretul final. De fapt, in build() se apeleaza cos.adaugaProdus(std::move(item.produs), item.cantitate) fara a aplica discountul. Ar fi trebuit ca builder-ul sa aplice discountul fiecarui produs inainte de a-l adauga, sau sa seteze un discount global pe cos. Acesta este un bug functional.
 
 - In main, dupa ce se termina sesiunea de comenzi (checkout), se citeste raspunsul pentru puncte cu `std::cin >> opt;`. In cazul in care se ruleaza cu fisierul comenzi.txt, aceasta citire nu mai vine din fisier ci de la tastatura, deoarece inputStream era finComenzi, dar dupa iesirea din bucla, se foloseste din nou std::cin. Pentru a fi consistent, ar fi trebuit sa se citeasca tot din inputStream. In codul actual, daca exista comenzi.txt, programul va astepta la sfarsit input de la tastatura, ceea ce nu este automat. Acesta este un alt defect minor. Solutia ar fi ca ultima linie din comenzi.txt sa fie si raspunsul pentru puncte, iar codul sa citeasca din acelasi stream.
 
 9. Concluzie
 
-In ciuda celor doua probleme mentionate (discountul neaplicat si citirea neuniforma a punctelor), proiectul este functional si demonstreaza intelegerea conceptelor cerute. Arhitectura este solida, iar codul este lizibil. Cu mici ajustari, ar putea deveni impecabil. Autorul a depus un efort considerabil si a reusit sa integreze template-uri si trei design patterns. Nota finala ar putea fi foarte buna, iar pentru corectarea defectelor as acorda un punctaj usor redus, dar proiectul ramane unul dintre cele mai bune din grupa.
+In ciuda celor doua probleme mentionate (discountul neaplicat si citirea neuniforma a punctelor), proiectul este functional si demonstreaza intelegerea conceptelor cerute. Codul este lizibil si cu mici ajustari, ar putea deveni impecabil. AM depus un efort considerabil si am reusit sa integrez template-uri si trei design patterns.
