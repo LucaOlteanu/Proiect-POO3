@@ -67,9 +67,6 @@ ComandaBuilder – construieste un cos pas cu pas (design pattern Builder)
 
 ### Linia de comanda (MinGW / g++)
 
-```bash
-g++ -std=c++20 -Wall -Wextra -g main.cpp Produs.cpp ProdusAlimentar.cpp ProdusElectronic.cpp ProdusMobilier.cpp Cos.cpp ProdusFactory.cpp ComandaBuilder.cpp -o program
-./program
 
 Fisiere de intrare
 date_intrare.txt – contine datele utilizatorului si catalogul produselor:
