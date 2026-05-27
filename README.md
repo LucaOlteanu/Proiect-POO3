@@ -80,7 +80,7 @@ PRODUS_MOBILIER: Birou, 450.0, 5, lemn masiv, 55.0
 PRODUS_MOBILIER: Scaun ergonomic, 320.0, 12, material textil, 18.0
 
 comenzi.txt (optional) – comenzi pentru sesiunea automata:
-
+```
 add 1 2
 add 2 1
 add 3 1
@@ -91,9 +91,10 @@ catalog
 show
 remove 3
 checkout
-
+```
 Daca fisierul comenzi.txt exista, programul va executa comenzile fara a mai cere input de la tastatura (inclusiv raspunsul pentru puncte).
 Exemple de comenzi in modul interactiv
+```
 add 1 2 – adauga produsul cu indexul 1 in cantitate 2
 
 remove 2 – sterge al doilea produs din cos
@@ -105,6 +106,7 @@ catalog – reafiseaza catalogul
 checkout – finalizeaza comanda
 
 quit – iese din program
+```
 
 Concluzie
 Proiectul indeplineste toate cerintele temei 3:
