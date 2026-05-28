@@ -79,6 +79,7 @@ PRODUS_ELECTRONIC: Mouse Wireless, 120.0, 15, 36, 2.5
 PRODUS_ELECTRONIC: Tastatura mecanica, 350.0, 8, 12, 5.0
 PRODUS_MOBILIER: Birou, 450.0, 5, lemn masiv, 55.0
 PRODUS_MOBILIER: Scaun ergonomic, 320.0, 12, material textil, 18.0
+PRODUS_ALIMENTAR: Paine, 2.5, 50, 2024-01-01
 ```
 comenzi.txt (optional) – comenzi pentru sesiunea automata:
 ```
