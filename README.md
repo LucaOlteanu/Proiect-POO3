@@ -189,4 +189,4 @@ Punctele sunt stocate in extra-ul utilizatorului. La finalizarea comenzii, utili
 
 9. Concluzie
 
-In ciuda celor doua probleme mentionate (discountul neaplicat si citirea neuniforma a punctelor), proiectul este functional si demonstreaza intelegerea conceptelor cerute. Codul este lizibil si cu mici ajustari, ar putea deveni impecabil. AM depus un efort considerabil si am reusit sa integrez template-uri si trei design patterns.
+In ciuda celor doua probleme mentionate (discountul neaplicat si citirea neuniforma a punctelor), proiectul este functional si demonstreaza intelegerea conceptelor cerute. Codul este lizibil si cu mici ajustari, ar putea deveni impecabil. Am depus un efort considerabil si am reusit sa integrez template-uri si trei design patterns.
