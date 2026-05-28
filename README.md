@@ -70,6 +70,7 @@ ComandaBuilder – construieste un cos pas cu pas (design pattern Builder)
 
 Fisiere de intrare
 date_intrare.txt – contine datele utilizatorului si catalogul produselor:
+```
 USER: Olteanu Luca, Strada Comertului 67, 1504.50
 
 PRODUS_ALIMENTAR: Mere, 4.5, 100, 2026-06-01
@@ -78,7 +79,7 @@ PRODUS_ELECTRONIC: Mouse Wireless, 120.0, 15, 36, 2.5
 PRODUS_ELECTRONIC: Tastatura mecanica, 350.0, 8, 12, 5.0
 PRODUS_MOBILIER: Birou, 450.0, 5, lemn masiv, 55.0
 PRODUS_MOBILIER: Scaun ergonomic, 320.0, 12, material textil, 18.0
-
+```
 comenzi.txt (optional) – comenzi pentru sesiunea automata:
 ```
 add 1 2
