@@ -121,6 +121,19 @@ citire comenzi din fisier
 
 separare cod in .h/.cpp, smart pointers, exceptii proprii, copy-and-swap, functii virtuale, dynamic_cast
 ```
+
+Bibliografie
+```text
+sstream - pentru parsare de stringuri
+ctime - functii pentru manipularea elementelor de timp
+chrono - pentru extragerea timpului din sistem
+infed, define - define guard, are grija sa nu se includa acelasi fisier header de mai multe ori
+noexcept - promisiune ca acea functie nu poate cauza exceptii
+static_cast - face conversii fara verificare la compilare daca sunt posibile, folosim cand suntem sigur ca se poate face
+istream - fluxul de citire general, vede atat cin cat si fstream
+iss - variabila ce citeste liniile din fisier, inlocuieste cin(parseaza automat spatiile, este mai util)
+```
+
 GitHub: LucaOlteanu/ProiectPOO3
 
 ---
